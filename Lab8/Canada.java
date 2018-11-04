@@ -120,4 +120,70 @@ public class Canada
             throw new IllegalArgumentException("Cannot be null or empty");
         }
     }
+    
+    public String[] getProvincesWithPopulationBetween(int min, int max){
+        int i                   = 0;
+        int j                   = 0;
+        int numOfProvWithPop    = 0;
+        String[] matchingProvinces;
+        
+        while(i<provinces.length){
+            if((provinces[i].getPopulation()>=min)&&(provinces[i].getPopulation()<=max)){
+                numOfProvWithPop++;
+            }
+            i++;
+        }
+        
+        if(numOfProvWithPop>0){
+            matchingProvinces = new ProvinceTerritory[numOfProvWithPop];
+        } else {
+            //no matches
+            return null;
+        }
+        
+        i=0; //start lookin from the beginning again
+        while(i<provinces.length){
+            if((provinces[i].getPopulation()>=min)&&(provinces[i].getPopulation()<=max)){
+                matchingProvinces[j]=provinces[i];
+                j++;
+            }
+            i++;
+        }
+        
+        return matchingProvinces;
+    }
+    
+    public boolean isProvinceInCanada(String name){
+        int     index = 0;
+        
+        if(name != null && !name.equals("")){
+            while(index<=provinces.length-1){
+                if(provinces[index].getName().equals(name)){
+                   return true;
+                }
+                   index+=1;
+            }
+            
+            return false;
+        }else{
+            throw new IllegalArgumentException("The province is not valid.");
+        }
+    }
+    
+    public String[] getProvincesWhoseNameContains(String substring){
+        if(substring != null && !substring.equals("")){
+            
+        }
+        else {
+            throw new IllegalArgumentException("The name of the province is not valid.");
+        }
+    }
+    
+    public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
+    
+    }
+    
+    public String[] getProvincesWhoseNameStartsWith(char letter){
+    
+    }
 }
