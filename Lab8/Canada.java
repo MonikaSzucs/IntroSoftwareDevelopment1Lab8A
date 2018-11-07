@@ -169,17 +169,23 @@ public class Canada
     }
 
     public String[] getProvincesWhoseNameContains(String substring){
-        int index = 0;
+        int i = 0;
+        int j = 0;
+        
         String[] matchingProvinces;
 
-        if(substring != null && !substring.equals("")){
-            if(provinces.contains(substring)){
-                return provinces[0].getName();
+        while(i < provinces.length){
+            if(substring != null && !substring.equals("") && ProvinceTerritory.contains(substring)){
+                matchingProvinces[j] = provinces[i].getName();
+                j++;
             }
             else {
-                throw new IllegalArgumentException("The name of the province is not valid.");
+                return null;
             }
+            i++;
         }
+        
+        return matchingProvinces;
     }
         /**
         public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
