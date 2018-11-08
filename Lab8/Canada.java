@@ -47,6 +47,7 @@ public class Canada
         provinces[YT]=new ProvinceTerritory("Yukon",33897);
 
     }
+
     /**
      * Method
      * 
@@ -169,9 +170,23 @@ public class Canada
     public String[] getProvincesWhoseNameContains(String substring){
         int i = 0;
         int j = 0;
+        int numOfProv = 0;
 
         String[] matchingProvinces;
-        matchingProvinces = new String[j];
+
+        while(i < provinces.length){
+            if(substring != null && !substring.equals("") && provinces[i].getName().contains(substring)){
+                numOfProv++;
+                System.out.println(numOfProv);
+            }
+            i++;
+        }
+
+        if(numOfProv>0){
+            matchingProvinces = new String[numOfProv];
+        } else {
+            return null;
+        }
 
         while(i < provinces.length){
             //substring = substring.toLowerCase();
