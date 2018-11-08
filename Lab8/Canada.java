@@ -171,9 +171,11 @@ public class Canada
         int j = 0;
 
         String[] matchingProvinces;
-        matchingProvinces = new String [13];
+        matchingProvinces = new String[j];
 
         while(i < provinces.length){
+            //substring = substring.toLowerCase();
+            //provinces[i] = provinces[i].toUpperCase();
             if(substring != null && !substring.equals("") && provinces[i].getName().contains(substring)){
                 matchingProvinces[j] = provinces[i].getName();
                 j++;
