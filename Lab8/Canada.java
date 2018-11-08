@@ -46,9 +46,7 @@ public class Canada
         provinces[SK]=new ProvinceTerritory("Saskatchewan",1033381);
         provinces[YT]=new ProvinceTerritory("Yukon",33897);
 
-    
     }
-
     /**
      * Method
      * 
@@ -171,52 +169,48 @@ public class Canada
     public String[] getProvincesWhoseNameContains(String substring){
         int i = 0;
         int j = 0;
-        
+
         String[] matchingProvinces;
+        matchingProvinces = new String [13];
 
         while(i < provinces.length){
-            if(substring != null && !substring.equals("") && provinces.contains(substring)){
+            if(substring != null && !substring.equals("") && provinces[i].getName().contains(substring)){
                 matchingProvinces[j] = provinces[i].getName();
                 j++;
             }
-            else {
-                return null;
-            }
             i++;
         }
-        
+
         return matchingProvinces;
-    }
-        /**
-        public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
-        if(substring != null && !substring.equals("")){
+    }      
 
+    public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
+        if(substring != null && !substring.equals("")){
+            return null;
         }
         else {
-        throw new IllegalArgumentException("The name of the province is not valid.");
+            throw new IllegalArgumentException("The name of the province is not valid.");
         }
-        }
-         */
-        /**
-        public String[] getProvincesWhoseNameStartsWith(char letter){
-        String[] matchingProvinces;
-        int     index = 0;
-
-        if(substring != null && !substring.equals("")){
-
-        while(index<=provinces.length-1){
-        if(provinces[0].getName().charAt(0).equals(letter)){
-        return matchingProvinces; 
-        }
-        index+=1;
-        }
-        return false 
-        }
-        else {
-        throw new IllegalArgumentException("The name of the province is not valid.");
-        }
-
-        
-        }
-         **/
     }
+    /**
+    public String[] getProvincesWhoseNameStartsWith(char letter){
+    String[] matchingProvinces;
+    int     index = 0;
+
+    if(substring != null && !substring.equals("")){
+
+    while(index<=provinces.length-1){
+    if(provinces[0].getName().charAt(0).equals(letter)){
+    return matchingProvinces; 
+    }
+    index+=1;
+    }
+    return false 
+    }
+    else {
+    throw new IllegalArgumentException("The name of the province is not valid.");
+    }
+
+    }
+     **/
+}
