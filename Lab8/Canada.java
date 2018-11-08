@@ -175,7 +175,7 @@ public class Canada
         String[] matchingProvinces;
 
         while(i < provinces.length){
-            if(substring != null && !substring.equals("") && ProvinceTerritory.contains(substring)){
+            if(substring != null && !substring.equals("") && provinces.contains(substring)){
                 matchingProvinces[j] = provinces[i].getName();
                 j++;
             }
