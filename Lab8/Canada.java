@@ -175,11 +175,9 @@ public class Canada
         String[] matchingProvinces;
 
         while(i < provinces.length){
-            provinces[i].getName().toUpperCase();
-            substring.toUpperCase();
-            if(substring != null && !substring.equals("") && provinces[i].getName().contains(substring)){
+            if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 numOfProv++;
-                
+                System.out.println(numOfProv);
             }
             i++;
         }
@@ -192,9 +190,7 @@ public class Canada
         
         i = 0;
         while(i < provinces.length){
-            provinces[i].getName().toUpperCase();
-            substring.toUpperCase();
-            if(substring != null && !substring.equals("") && provinces[i].getName().contains(substring)){
+            if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 matchingProvinces[j] = provinces[i].getName();
                 System.out.println(matchingProvinces[j]);
                 j++;
