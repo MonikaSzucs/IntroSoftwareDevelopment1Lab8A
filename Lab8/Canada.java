@@ -202,6 +202,7 @@ public class Canada
         return matchingProvinces;
     }      
 
+   
     public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
         int i = 0;
         int j = 0;
@@ -234,27 +235,44 @@ public class Canada
             i++;
         }
 
-        return matchingProvinces;
+        return ProvinceTerritory[];
     }
+    
     /**
     public String[] getProvincesWhoseNameStartsWith(char letter){
-    String[] matchingProvinces;
-    int     index = 0;
+        int i = 0;
+        int j = 0;
+        int numOfProv = 0;
 
-    if(substring != null && !substring.equals("")){
+        String[] matchingProvinces;
 
-    while(index<=provinces.length-1){
-    if(provinces[0].getName().charAt(0).equals(letter)){
-    return matchingProvinces; 
-    }
-    index+=1;
-    }
-    return false 
-    }
-    else {
-    throw new IllegalArgumentException("The name of the province is not valid.");
-    }
+        while(i < provinces.length){
+            if(letter != '\0' && !letter.isEmpty() && provinces[i].getName().toUpperCase().startsWith(letter.toUpperCase())){
+                numOfProv++;
+                System.out.println(numOfProv);
+            }
+            i++;
+        }
+
+        if(numOfProv>0){
+            matchingProvinces = new String[numOfProv];
+        } else {
+            return null;
+        }
+
+        i = 0;
+        while(i < provinces.length){
+            if(letter != null && !letter.equals("") && provinces[i].getName().toUpperCase().startsWith(letter.toUpperCase())){
+                matchingProvinces[j] = provinces[i].getName();
+                System.out.println(matchingProvinces[j]);
+                j++;
+
+            }
+            i++;
+        }
+
+        return matchingProvinces;
 
     }
-     **/
+    */
 }
