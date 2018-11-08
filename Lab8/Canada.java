@@ -187,7 +187,8 @@ public class Canada
         } else {
             return null;
         }
-
+        
+        i = 0;
         while(i < provinces.length){
             //substring = substring.toLowerCase();
             //provinces[i] = provinces[i].toUpperCase();
