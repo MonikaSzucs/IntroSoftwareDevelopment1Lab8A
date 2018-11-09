@@ -238,9 +238,7 @@ public class Canada
         }
         
         
-        for(int k; k<numOfProv;k++){
-           return matchingProvinces[k];
-        }
+        return ProvinceTerritory[];
 
     }
     
