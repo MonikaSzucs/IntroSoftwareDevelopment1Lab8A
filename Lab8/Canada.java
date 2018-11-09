@@ -208,8 +208,8 @@ public class Canada
         int j = 0;
         int numOfProv = 0;
         
-        String[] matchingProvinces;
-        
+        // String[] matchingProvinces;
+        ProvinceTerritory[] provinceTerritories;
         
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
@@ -220,7 +220,8 @@ public class Canada
         }
 
         if(numOfProv>0){
-            matchingProvinces = new String[numOfProv];
+            // matchingProvinces = new String[numOfProv];
+            provinceTerritories = new ProvinceTerritory[numOfProv];
         } else {
             return null;
         }
@@ -229,8 +230,9 @@ public class Canada
         
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
-                matchingProvinces[j] = new String(provinces[i].getName());
-                System.out.println(matchingProvinces[j]);
+                // matchingProvinces[j] = new String(provinces[i].getName());
+                // System.out.println(matchingProvinces[j]);
+                provinceTerritories[j] = provinces[i];
                 j++;
 
             }
@@ -238,11 +240,11 @@ public class Canada
         }
         
         
-        return ProvinceTerritory[];
+        return provinceTerritories;
 
     }
     
-    /**
+
     public String[] getProvincesWhoseNameStartsWith(char letter){
         int i = 0;
         int j = 0;
@@ -251,7 +253,7 @@ public class Canada
         String[] matchingProvinces;
 
         while(i < provinces.length){
-            if(letter != '\0' && !letter.isEmpty() && provinces[i].getName().toUpperCase().startsWith(letter.toUpperCase())){
+            if(letter != '\0' && letter != ' ' && provinces[i].getName().toUpperCase().startsWith((String.valueOf(letter).toUpperCase()))){
                 numOfProv++;
                 System.out.println(numOfProv);
             }
@@ -266,7 +268,7 @@ public class Canada
 
         i = 0;
         while(i < provinces.length){
-            if(letter != null && !letter.equals("") && provinces[i].getName().toUpperCase().startsWith(letter.toUpperCase())){
+            if(letter != '\0' && letter != ' ' && provinces[i].getName().toUpperCase().startsWith((String.valueOf(letter).toUpperCase()))){
                 matchingProvinces[j] = provinces[i].getName();
                 System.out.println(matchingProvinces[j]);
                 j++;
@@ -278,5 +280,5 @@ public class Canada
         return matchingProvinces;
 
     }
-    */
+
 }
