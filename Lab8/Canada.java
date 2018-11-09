@@ -226,21 +226,22 @@ public class Canada
         }
 
         i = 0;
-        Object[] array = new Object[numOfProv];
         
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
-                matchingProvinces[j] = provinces[i].getName();
+                matchingProvinces[j] = new String(provinces[i].getName());
                 System.out.println(matchingProvinces[j]);
-                array[i] = provinces[i].getName();
-                System.out.println(array[i]);
                 j++;
 
             }
             i++;
         }
+        
+        
+        for(int k; k<numOfProv;k++){
+           return matchingProvinces[k];
+        }
 
-        return ProvinceTerritory[];
     }
     
     /**
