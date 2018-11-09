@@ -19,6 +19,4 @@ comment6.params=name
 comment6.target=boolean\ isProvinceInCanada(java.lang.String)
 comment7.params=substring
 comment7.target=java.lang.String[]\ getProvincesWhoseNameContains(java.lang.String)
-comment8.params=substring
-comment8.target=ProvinceTerritory[]\ getMoreProvincesWhoseNameContains(java.lang.String)
-numComments=9
+numComments=8

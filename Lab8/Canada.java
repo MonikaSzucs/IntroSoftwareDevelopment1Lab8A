@@ -202,13 +202,14 @@ public class Canada
         return matchingProvinces;
     }      
 
-   
+  
     public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
         int i = 0;
         int j = 0;
         int numOfProv = 0;
         
         String[] matchingProvinces;
+        
         
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
@@ -225,10 +226,14 @@ public class Canada
         }
 
         i = 0;
+        Object[] array = new Object[numOfProv];
+        
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 matchingProvinces[j] = provinces[i].getName();
                 System.out.println(matchingProvinces[j]);
+                array[i] = provinces[i].getName();
+                System.out.println(array[i]);
                 j++;
 
             }
