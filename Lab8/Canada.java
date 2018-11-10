@@ -51,7 +51,7 @@ public class Canada
     /**
      * Method
      * 
-     * 
+     * @return the sum
      */
     public int getTotalPopulation()
     {
@@ -70,7 +70,7 @@ public class Canada
     /**
      * Method
      * 
-     * 
+     * @return the Lowest population name
      */
     public String getLowestPopulation()
     {
@@ -94,7 +94,8 @@ public class Canada
     /**
      * Method
      * 
-     * 
+     * @return province population 
+     * @return a negative one if no such province
      */
     public int getPopulation(String province)
     {
@@ -117,7 +118,14 @@ public class Canada
             throw new IllegalArgumentException("Cannot be null or empty");
         }
     }
-
+    
+    /**
+     * Method
+     * 
+     * @return matching provinces
+     * @return if province with population between min and max
+     */
+    
     public String[] getProvincesWithPopulationBetween(int min, int max){
         int i                   = 0;
         int j                   = 0;
@@ -149,7 +157,14 @@ public class Canada
 
         return matchingProvinces;
     }
-
+    
+    /**
+     * Method
+     * 
+     * @return true if province found
+     * @return false if province not found 
+     */
+    
     public boolean isProvinceInCanada(String name){
         int     index = 0;
 
@@ -167,6 +182,13 @@ public class Canada
         }
     }
 
+    /**
+     * Method
+     * 
+     * @return null if province name does not contain the substring
+     * @return matchingProvinces if the substring matches a province 
+     */
+    
     public String[] getProvincesWhoseNameContains(String substring){
         int i = 0;
         int j = 0;
@@ -174,6 +196,10 @@ public class Canada
 
         String[] matchingProvinces;
 
+        if(substring == null || substring.equals("")){
+            throw new IllegalArgumentException("The parameter cannot be null or empty");
+        }
+        
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 numOfProv++;
@@ -192,7 +218,6 @@ public class Canada
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 matchingProvinces[j] = provinces[i].getName();
-                System.out.println(matchingProvinces[j]);
                 j++;
 
             }
@@ -202,19 +227,27 @@ public class Canada
         return matchingProvinces;
     }      
 
-  
+    /**
+     * Method
+     * 
+     * @return null if no province found from substring entered
+     * @return provinceTerritories if substring found provinces matching 
+     */
     public ProvinceTerritory[] getMoreProvincesWhoseNameContains(String substring){
         int i = 0;
         int j = 0;
         int numOfProv = 0;
-        
+
         // String[] matchingProvinces;
         ProvinceTerritory[] provinceTerritories;
+
+        if(substring == null || substring.equals("")){
+            throw new IllegalArgumentException("The parameter cannot be null or empty");
+        }
         
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 numOfProv++;
-                System.out.println(numOfProv);
             }
             i++;
         }
@@ -227,7 +260,7 @@ public class Canada
         }
 
         i = 0;
-        
+
         while(i < provinces.length){
             if(substring != null && !substring.equals("") && provinces[i].getName().toUpperCase().contains(substring.toUpperCase())){
                 // matchingProvinces[j] = new String(provinces[i].getName());
@@ -238,20 +271,23 @@ public class Canada
             }
             i++;
         }
-        
-        
+
         return provinceTerritories;
-
     }
-    
 
+    /**
+     * Method
+     * 
+     * @return null if no province found from character letter
+     * @return matching provinces if letter entered finds a province that starts with the same letter
+     */
     public String[] getProvincesWhoseNameStartsWith(char letter){
         int i = 0;
         int j = 0;
         int numOfProv = 0;
 
         String[] matchingProvinces;
-
+        
         while(i < provinces.length){
             if(letter != '\0' && letter != ' ' && provinces[i].getName().toUpperCase().startsWith((String.valueOf(letter).toUpperCase()))){
                 numOfProv++;
